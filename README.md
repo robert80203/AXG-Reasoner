@@ -73,7 +73,7 @@ Ensure your environment can
 - Default numer of frames: 3
 - Default number of clusters: clust_config.json
 ### Subaction generation
-#### Generate subaction and object state clusters
+#### ![Generate subaction and object state clusters](figures/subaction_cluster_generation.png)
 - Embed frame-wise actions and object states with SentenceBERT and their temporal embeddings.
 - Use k-means to generate subaction and object clusters.
 - Remove bad clusters for both subaction and object clusters.
@@ -81,7 +81,7 @@ Ensure your environment can
 ```shell
 python generate_subactions_objects.py --dataset EgoPER --task quesadilla
 ```
-#### Generate possible subactions and objects
+#### ![Generate possible subactions and objects](figures/generate_possible_subactions_objects.png)
 - Use LLMs to summarize actions in a cluster with objects information to obtain the subaction.
 - Need to check the followings:
     - If the subaction already exists.
@@ -92,7 +92,7 @@ python generate_subactions_objects.py --dataset EgoPER --task quesadilla
 python summarize_subactions.py --dataset EgoPER --task quesadilla
 ```
 
-#### Generate the features for subactions (for Graph-to-video alignment)
+#### ![Generate the features for subactions (for Graph-to-video alignment)](figures/generate_features_for_subactions.png)
 - Perform average over the corresponding pre-extracted frame features
     - The frames that match the subaction descriptions
 - Results will be saved in `output/`, named `v_subaction_features_{num_clusters_dict[task]}_clust`
@@ -100,7 +100,7 @@ python summarize_subactions.py --dataset EgoPER --task quesadilla
 python generate_subaction_features.py --dataset EgoPER --task quesadilla
 ```
 
-### AXG generation
+### ![AXG generation](figures/axg_generation.png)
 - Perform graph-to-video alignment to localize the subactions within an action segment.
 - Record the matched execution paths during the process.
 - Keep the frequetly matched paths and construct AXG.
@@ -112,8 +112,11 @@ python build_axg.py --dataset EgoPER --task quesadilla
 ## Testing
 - (optional) If you would like to use predicted TAS, create a `tas_output/` and put the downloaded or your own tas inside.
 ### Error reasoning inference
-#### Temporal Subaction Segmentation (Graph-to-video aligment)
+#### ![Temporal Subaction Segmentation (Graph-to-video aligment)](figures/subaction_segmentation.png)
 - Align subactions in the AXG with the action segment.
+    - You will obtain matched subactions and dropped ones.
+    - Matched subactions are considered as potentially correct.
+    - Dropped subactions are considered as potentially erroneous.
 - Results will be saved in `output/`, named `data_for_vlm_{num_clusters_dict[task]}_clust_{tas_backbone}`
 - `--tas_backbone` can be either `gt`, `gtg2vid`, `fact`, or `egoped`
     - [GTG2Vid](https://openaccess.thecvf.com/content/ICCV2025/papers/Lee_Error_Recognition_in_Procedural_Videos_using_Generalized_Task_Graph_ICCV_2025_paper.pdf)
