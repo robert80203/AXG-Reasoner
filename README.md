@@ -1,5 +1,17 @@
 # AXG-Reasoner
-This is the official implementation of our CVPR2026 paper, "AXG-Reasoner: Error Detection and Explanation in Long Task Videos with Vision–Language Models"
+This is the official implementation of our CVPR2026 paper, [AXG-Reasoner: Error Detection and Explanation in Long Task Videos with Vision–Language Models](https://openaccess.thecvf.com/content/CVPR2026/papers/Lee_AXG-Reasoner_Error_Detection_and_Explanation_in_Long_Task_Videos_with_CVPR_2026_paper.pdf)
+
+If our work is helpful to your research, please consider citing our paper:
+```
+@InProceedings{Lee_2026_CVPR,
+    author    = {Lee, Shih-Po and Elhamifar, Ehsan},
+    title     = {AXG-Reasoner: Error Detection and Explanation in Long Task Videos with Vision-Language Models},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026},
+    pages     = {3421-3431}
+}
+```
 
 ## Preparation
 ### Download frames and pre-extracted features
