@@ -16,6 +16,7 @@ If our work is helpful to your research, please consider citing our paper:
 ## Preparation
 ### Download frames and pre-extracted features
 To download the EgoPER and CaptainCook4D dataset, please visit [GTG2Vid](https://github.com/robert80203/GTG2Vid)
+- Note: please extract frames with 10fps using videos in [EgoPER](https://github.com/robert80203/EgoPER_official)
 
 ### Download labels, splits, and frame-wise captions, and other files
 To download the EgoPER and CaptainCook4D datasets, please send a request to lee.shih@northeastern.edu with the following information:
